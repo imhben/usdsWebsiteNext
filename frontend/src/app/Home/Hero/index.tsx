@@ -2,6 +2,7 @@
 
 import styles from "./hero.module.css";
 import CTA from "../../../components/buttons/CTA";
+import Image from "next/image";
 
 type CTAConfig = {
   text: string;
@@ -34,12 +35,25 @@ export default function Hero() {
       aria-labelledby="hero-title"
       aria-describedby="hero-desc"
     >
+      {/* <div className={styles.mediaWrapper}>
+        <div className={styles.mediaWrapperInner}>
+          <Image className={styles.image} src="/whImage.avif" alt="White House" fill priority />
+        </div>
+      </div> */}
       <div className={styles.inner}>
-        <h1 id="hero-title" className={styles.title}>
-          Building Tech and Efficiency that Americans<span className={styles.titleSpan}> Deserve</span>
+        <h1 id="hero-title" className={`${styles.title} fontInstrumentDisplay`}>
+          We&apos;re Building Tech and Efficiency that Americans
+          <span className={`${styles.titleSpan} fontInstrumentDisplay`}>
+            {" "}
+            Deserve
+          </span>
         </h1>
 
-        <div className={styles.ctaWrapper} role="group" aria-label="Primary actions">
+        <div
+          className={styles.ctaWrapper}
+          role="group"
+          aria-label="Primary actions"
+        >
           {ctaButtons.map((cta) => (
             <CTA
               key={cta.href}

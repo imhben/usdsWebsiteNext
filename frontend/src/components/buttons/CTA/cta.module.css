@@ -1,12 +1,17 @@
 .wrapper {
   border-radius: var(--border-radius-tertiary);
-  border: 1px solid var(--primary-light-muted-transparent);
+  border: var(--border-theme);
   position: relative;
   background: transparent;
   cursor: pointer;
   display: flex;
   font-weight: 700;
   font-size: var(--fs-h5);
+
+}
+
+.wrapper * { 
+  font-family: var(--font-publicSans);
 
 }
 
@@ -71,7 +76,7 @@
   height: 100%;
   padding: 0.75rem 3rem;
   border-radius: var(--border-radius-tertiary);
-  border: 1px solid var(--primary-light-muted-transparent);
+  border: var(--border-theme);
     display: flex;
   align-items: center;
   justify-content: center;

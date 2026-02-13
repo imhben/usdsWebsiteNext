@@ -12,35 +12,26 @@
 }
 
 .iconPillGradient {
-  background: var(--tertiary-color-light-transparent);
-  border: 1px solid var(--primary-light-transparent);
+    background: var(--primary-light-muted-transparent);
+
+  border: var(--border-theme);
   color: var(--primary-light);
 }
 
 .statusPillGradient {
   color: var(--primary-light);
-  background: var(--tertiary-color-light-transparent);
-  border: 1px solid var(--primary-light-transparent);
+    background: var(--primary-light-muted-transparent);
+
+  border: var(--border-theme);
 }
 
 .tagPillGradient {
 
   color: var(--primary-light);
-  background: rgba(255, 255, 255, 0.18);
+    background: var(--primary-light-muted-transparent);
+
 }
 
 .cardTitleGradient {
   font-weight: 700;
-}
-
-.bulletsGradient {
-  /* list-style: none; */
-}
-
-.bulletGradient {
-}
-
-.bulletDotGradient {
-  /* background: rgba(255, 255, 255, 0.7);
-  flex: 0 0 auto; */
 }

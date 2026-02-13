@@ -19,7 +19,7 @@ const NAV: NavItem[] = [
     type: "dropdown",
     label: "About",
     items: [
-      { label: "Our Mission", href: "#mission" },
+      { label: "Our Mission", href: "/mission" },
       { label: "How We Work", href: "#work" },
     ],
   },
@@ -47,83 +47,85 @@ export default function HeaderWrapper() {
 
   return (
     <header className={styles.header} aria-label="Site header">
-      <div className={styles.inner}>
-        {/* Brand */}
-        <Link href="#top" className={styles.brand} aria-label="Home">
-          <span className={styles.logoBox}>
-            <Image
-              src="/usds-logo-cropped.svg"
-              alt="USDS logo"
-              fill
-              priority
-              className={styles.logoImg}
-            />
-          </span>
-          <span className={styles.brandText}>U.S. DOGE Service</span>
-        </Link>
+      <div className={styles.innerWrapper}>
+        <div className={styles.inner}>
+          <Link href="#top" className={styles.brand} aria-label="Home">
+            <span className={styles.logoBox}>
+              <Image
+                src="/usds-logo-cropped.svg"
+                alt="USDS logo"
+                fill
+                priority
+                className={styles.logoImg}
+              />
+            </span>
+            <span className={styles.brandText}>U.S. DOGE Service</span>
+          </Link>
 
-        <nav className={styles.navDesktop} aria-label="Primary navigation">
-          <ul className={styles.navList}>
-            {nav.map((item) => {
-              if (item.type === "link") {
+          <nav className={styles.navDesktop} aria-label="Primary navigation">
+            <ul className={styles.navList}>
+              {nav.map((item) => {
+                if (item.type === "link") {
+                  return (
+                    <li key={item.label} className={styles.navItem}>
+                      <Link className={styles.navLink} href={item.href}>
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                }
+
+                // dropdown
                 return (
-                  <li key={item.href} className={styles.navItem}>
-                    <Link className={styles.navLink} href={item.href}>
+                  <li key={item.label} className={styles.navItem}>
+                    <button
+                      type="button"
+                      className={styles.navButton}
+                      aria-haspopup="menu"
+                      aria-expanded={openDropdown === item.label ? "true" : "false"}
+                      onClick={() =>
+                        setOpenDropdown((cur) =>
+                          cur === item.label ? null : item.label,
+                        )
+                      }
+                    >
                       {item.label}
-                    </Link>
+                      <span className={styles.chev} aria-hidden="true">
+                        ▾
+                      </span>
+                    </button>
+
+                    {openDropdown === item.label && (
+                      <div className={styles.dropdown} role="menu">
+                        {item.items.map((dd) => (
+                          <Link
+                            key={dd.href}
+                            href={dd.href}
+                            className={styles.dropdownLink}
+                            role="menuitem"
+                            onClick={() => setOpenDropdown(null)}
+                          >
+                            {dd.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 );
-              }
+              })}
+            </ul>
+          </nav>
 
-              return (
-                <li key={item.label} className={styles.navItem}>
-                  <button
-                    type="button"
-                    className={styles.navButton}
-                    aria-haspopup="menu"
-                    aria-expanded={openDropdown === item.label}
-                    onClick={() =>
-                      setOpenDropdown((cur) =>
-                        cur === item.label ? null : item.label,
-                      )
-                    }
-                  >
-                    {item.label}
-                    <span className={styles.chev} aria-hidden="true">
-                      ▾
-                    </span>
-                  </button>
-
-                  {openDropdown === item.label && (
-                    <div className={styles.dropdown} role="menu">
-                      {item.items.map((dd) => (
-                        <Link
-                          key={dd.href}
-                          href={dd.href}
-                          className={styles.dropdownLink}
-                          role="menuitem"
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {dd.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-
-        <button
-          type="button"
-          className={styles.mobileToggle}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-        >
-          <span className={styles.mobileBars} aria-hidden="true" />
-        </button>
+          <button
+            type="button"
+            className={styles.mobileToggle}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            <span className={styles.mobileBars} aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -172,8 +174,7 @@ export default function HeaderWrapper() {
                 );
               })}
               <li>
-              <CTA text="Join DOGE" href={"#join"}/>
-
+                <CTA text="Join DOGE" href={"#join"} />
               </li>
             </ul>
           </nav>

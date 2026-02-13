@@ -23,7 +23,7 @@ export default function CTA({
 
   return (
     <motion.div
-      className={styles.wrapper}
+      className={`${styles.wrapper}`}
       whileHover={reduceMotion ? undefined : { scale: 1.03 }}
       whileTap={reduceMotion ? undefined : { scale: 0.98 }}
     >

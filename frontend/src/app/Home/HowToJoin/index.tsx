@@ -55,7 +55,7 @@ export default function HowToJoin() {
       id="join"
       aria-labelledby="how-to-join-title"
     >
-      <div className={`inner`}>
+      <div className={`pageInnerWrapper`}>
         <div className={styles.grid}>
           <div className={styles.left}>
             <header className={styles.header}>

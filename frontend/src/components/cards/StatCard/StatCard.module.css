@@ -5,9 +5,8 @@
 
 .statValue {
   font-size: var(--fs-h2);
-  font-weight: 750;
+  font-weight: 700;
   color: var(--primary-color);
-  letter-spacing: -0.02em;
 }
 
 .statCardBodyInfo {
@@ -16,7 +15,7 @@
 
 .statTitle {
   color: var(--primary-light);
-  font-weight: 650;
+  font-weight: 600;
   font-size: var(--fs-h5);
 }
 

@@ -8,15 +8,18 @@ import StatCard from "@/components/cards/StatCard";
 
 export default function Info() {
   return (
-    <section className={`homeSection ${styles.wrapper}`} aria-labelledby="impact-title">
-      <div className={`inner`}>
+    <section
+      className={`homeSection ${styles.wrapper}`}
+      aria-labelledby="impact-title"
+    >
+      <div className={`pageInnerWrapper`}>
         <header className={styles.header}>
           <h2 id="impact-title" className={`sectionTitle`}>
             Our Impact
           </h2>
           <p className={`sectionSubtitle`}>
-            Delivering measurable results for the American people through technology, efficiency,
-            and cross-agency collaboration.
+            Delivering measurable results for the American people through
+            technology, efficiency, and cross-agency collaboration.
           </p>
         </header>
 
@@ -64,30 +67,40 @@ export default function Info() {
 
           <div className={styles.colRight}>
             <div className={styles.statGrid}>
-              <StatCard
-                icon="dollar"
-                value="$3B+"
-                title="Medicare Fraud Stopped"
-                subtitle="Improper payments halted with CMS"
-              />
-              <StatCard
-                icon="school"
-                value="$1B+"
-                title="Student Aid Fraud Prevented"
-                subtitle="Before funds were disbursed"
-              />
-              <StatCard
-                icon="building"
-                value="10+"
-                title="Major Agency Partners"
-                subtitle="VA, CMS, GSA, OPM, State & more"
-              />
-              <StatCard
-                icon="globe"
-                value="1M"
-                title="Daily Timeouts Fixed"
-                subtitle="Visa application sessions restored"
-              />
+              <div className={styles.statFlexWrapper}>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="dollar"
+                    value="$3B+"
+                    title="Medicare Fraud Stopped"
+                    subtitle="Improper payments halted with CMS"
+                  />
+                </div>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="school"
+                    value="$1B+"
+                    title="Student Aid Fraud Prevented"
+                    subtitle="Before funds were disbursed"
+                  />
+                </div>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="building"
+                    value="10+"
+                    title="Major Agency Partners"
+                    subtitle="VA, CMS, GSA, OPM, State & more"
+                  />
+                </div>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="globe"
+                    value="1M"
+                    title="Daily Timeouts Fixed"
+                    subtitle="Visa application sessions restored"
+                  />
+                </div>
+              </div>
 
               <div className={styles.wideRow}>
                 <ListCard
@@ -103,18 +116,24 @@ export default function Info() {
                 />
               </div>
 
-              <StatCard
-                icon="trendingUp"
-                value="$6B"
-                title="Est. Healthcare Savings"
-                subtitle="National Provider Directory"
-              />
-              <StatCard
-                icon="map"
-                value="26"
-                title="States on NBS 7.0"
-                subtitle="Disease surveillance with CDC"
-              />
+              <div className={styles.statFlexWrapper}>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="trendingUp"
+                    value="$6B"
+                    title="Est. Healthcare Savings"
+                    subtitle="National Provider Directory"
+                  />
+                </div>
+                <div className={styles.statFlexSection}>
+                  <StatCard
+                    icon="map"
+                    value="26"
+                    title="States on NBS 7.0"
+                    subtitle="Disease surveillance with CDC"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

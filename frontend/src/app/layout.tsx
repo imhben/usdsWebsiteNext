@@ -1,16 +1,42 @@
 import type { Metadata } from "next";
 import "@trussworks/react-uswds/lib/uswds.css";
 import "@trussworks/react-uswds/lib/index.css";
-import { Outfit } from "next/font/google";
+import { Public_Sans, Instrument_Serif, Outfit, Open_Sans } from "next/font/google";
 import "./globals.css";
 import HeaderWrapper from "@/components/general/HeaderWrapper";
 import FooterWrapper from "@/components/general/FooterWrapper";
+// import Preloader from "@/components/general/Preloader";
+
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-publicSans"
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-openSans"
+});
 
 const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-outfit"
 });
+
+const instrumentalSerif = Instrument_Serif({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-instrumentalSerif"
+});
+
+// const instrumentSerif = Instrument_Serif({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-instrumentSerif",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable}`}>
+      <body className={`${publicSans.variable} ${instrumentalSerif.variable} ${outfit.variable} ${openSans.variable}`}>
         <HeaderWrapper />
 
         {children}

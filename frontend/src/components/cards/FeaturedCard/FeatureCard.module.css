@@ -4,7 +4,7 @@
     rgba(24, 182, 255, 0.9),
     rgba(24, 182, 255, 0.62)
   );
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: var(--border-theme);
   min-height: 320px;
 }
 
@@ -19,36 +19,34 @@
 
 .iconPillFeatured {
   color: var(--primary-light) !important;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+    background: var(--primary-light-muted-transparent);
+
+  border: var(--border-theme);
 }
 
 .statusPillFeatured {
-  background: var(--primary-color-light-transparent);
-  border: 1px solid var(--primary-light-transparent);
+    background: var(--primary-light-muted-transparent);
+
+  border: var(--border-theme);
 
 }
 
 .tagPillFeatured {
   color: rgba(255, 255, 255, 0.95);
-  background: var(--primary-color-light-transparent);
+  border: var(--border-theme);
+  background: var(--primary-light-muted-transparent);
 }
 
 .cardTitleFeatured {
   font-weight: 700;
 }
 
-.bulletsFeatured {
-  /* list-style: none; */
-}
 
 .bulletFeatured {
   color: var(--primary-light);
 }
 
-.bulletDotFeatured {
-  /* background: rgba(255, 255, 255, 0.7); */
-}
+
 
 .waves {
   margin-top: 1.25rem;
